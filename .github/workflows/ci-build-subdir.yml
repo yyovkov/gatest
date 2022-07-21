@@ -34,6 +34,6 @@ jobs:
             echo Running dockerbuild here: $(pwd)
             echo "docker build -t ${image}:${tag}.  -f Dockerfile"
             echo "docker tag ${iamge}:${tag} -t ${image}:latest"
-            echo "docker push ${image}:${tag}""
+            echo "docker push ${image}:${tag}"
             echo "docker push ${image}:latest"
           done
