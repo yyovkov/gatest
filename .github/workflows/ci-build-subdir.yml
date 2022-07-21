@@ -1,9 +1,11 @@
-name: TEST build subdir
+name: CI subdir
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - 'master'
     paths:
-      - images/**
+      - 'images/**'
 
 jobs:
   build-subdirs:
