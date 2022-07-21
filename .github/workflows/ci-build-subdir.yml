@@ -22,7 +22,7 @@ jobs:
           echo Directories with changes are: $dirs
           echo "Running Docker Containers Creation"
           for dir in $dirs; do
-            cd $GITHUB_WORKSPACE$/{dir}
+            cd $GITHUB_WORKSPACE/${dir}
             echo Running dockerbuild here: $(pwd)
           done
 
