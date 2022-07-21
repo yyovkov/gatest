@@ -22,8 +22,11 @@ jobs:
           echo Directories with changes are: $dirs
           pwd
           ls -l 
+          echo "GitHub Actions Variables"
+          $GITHUB_ENV
           for dir in $dirs; do
             cd ${dir}
             echo Running dockerbuild here: $(pwd)
+            cd -
           done
 
