@@ -24,6 +24,9 @@ jobs:
           ls -l 
           echo "GitHub Actions Variables"
           cat $GITHUB_ENV
+          file $GITHUB_ENV
+          echo "Display environment variables"
+          env
           for dir in $dirs; do
             cd ${dir}
             echo Running dockerbuild here: $(pwd)
