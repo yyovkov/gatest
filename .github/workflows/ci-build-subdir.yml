@@ -32,7 +32,7 @@ jobs:
             tag=$(echo $dir | cut -d '/' -f 3)
             cd $GITHUB_WORKSPACE/${dir}
             echo Running dockerbuild here: $(pwd)
-            docker build -t ${image}:${tag}.  -f Dockerfile
+            docker build -t ${image}:${tag} .  -f Dockerfile
             docker tag ${iamge}:${tag} -t ${image}:latest
             docker push ${image}:${tag}
             docker push ${image}:latest
