@@ -19,4 +19,4 @@ jobs:
       - name: Check file changed
         run: | 
           diff=$(git diff --name-only HEAD^ HEAD | cut -d '/' -f 1-3 | sort | uniq)
-          echo Files changed are: $diff
+          echo Directories with changes are: $diff
