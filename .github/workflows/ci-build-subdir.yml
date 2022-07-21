@@ -20,6 +20,8 @@ jobs:
         run: | 
           dirs=$(git diff --name-only HEAD^ HEAD | grep ^images/ | cut -d '/' -f 1-3 | sort | uniq)
           echo Directories with changes are: $dirs
+          pwd
+          ls -l 
           for dir in $dirs; do
             cd ${dir}
             echo Running dockerbuild here: $(pwd)
