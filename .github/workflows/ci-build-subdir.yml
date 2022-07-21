@@ -35,8 +35,6 @@ jobs:
             tag=$(echo $dir | cut -d '/' -f 3)
             cd $GITHUB_WORKSPACE/${dir}
             echo Running dockerbuild here: $(pwd)
-            docker build -t ${DOCKERHUB_REPO}/${image}:${tag} .  -f Dockerfile
-            docker tag ${DOCKERHUB_REPO}/${image}:${tag} ${DOCKERHUB_REPO}/${image}:latest
-            docker push ${DOCKERHUB_REPO}/${image}:${tag}
-            docker push ${DOCKERHUB_REPO}/${image}:latest
+            docker build -t ${DOCKERHUB_REPO}/${image}:${tag}-${{ github.sha }} .  -f Dockerfile
+            docker push ${DOCKERHUB_REPO}/${image}:${tag}-${{ github.sha }}
           done
