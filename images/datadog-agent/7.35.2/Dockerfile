@@ -1,1 +1,1 @@
-# Just updated the docker file for first time
+FROM alpine:3.15.5

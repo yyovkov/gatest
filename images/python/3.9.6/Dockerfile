@@ -1,1 +1,1 @@
-# This is new dockerfile
+FROM alpine:3.15.5

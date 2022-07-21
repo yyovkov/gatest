@@ -1,3 +1,1 @@
-# This is new file added to the repo
-# Second change in that file
-# Third change here
+FROM alpine:3.15.5

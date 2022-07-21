@@ -1,1 +1,1 @@
-# This is empty dockerfile
+FROM alpine:3.15.5
