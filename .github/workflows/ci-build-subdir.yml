@@ -23,7 +23,7 @@ jobs:
           pwd
           ls -l 
           echo "GitHub Actions Variables"
-          echo $GITHUB_ENV
+          cat $GITHUB_ENV
           for dir in $dirs; do
             cd ${dir}
             echo Running dockerbuild here: $(pwd)
