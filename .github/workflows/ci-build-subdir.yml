@@ -20,17 +20,9 @@ jobs:
         run: | 
           dirs=$(git diff --name-only HEAD^ HEAD | grep ^images/ | cut -d '/' -f 1-3 | sort | uniq)
           echo Directories with changes are: $dirs
-          pwd
-          ls -l 
-          # echo "GitHub Actions Variables"
-          # cat $GITHUB_ENV
-          # file $GITHUB_ENV
-          # echo "Display environment variables"
-          # env
-          echo GITHUB_WORKSPACE: $GITHUB_WORKSPACE
+          echo "Running Docker Containers Creation"
           for dir in $dirs; do
-            cd ${dir}
+            cd $GITHUB_WORKSPACE$/{dir}
             echo Running dockerbuild here: $(pwd)
-            cd -
           done
 
