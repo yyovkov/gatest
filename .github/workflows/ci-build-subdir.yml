@@ -18,6 +18,10 @@ jobs:
 
       - name: Check file changed
         run: | 
-          # diff=$(git diff --name-only HEAD^ HEAD | grep ^images | cut -d '/' -f 1-3 | sort | uniq)
-          diff=$(git diff --name-only HEAD^ HEAD | cut -d '/' -f 1-3 | sort | uniq)
-          echo Directories with changes are: $diff
+          dirs=$(git diff --name-only HEAD^ HEAD | grep ^images/ | cut -d '/' -f 1-3 | sort | uniq)
+          echo Directories with changes are: $dirs
+          for dir in $dirs; do
+            cd ${dir}
+            echo Running dockerbuild here: $(pwd)
+          done
+
