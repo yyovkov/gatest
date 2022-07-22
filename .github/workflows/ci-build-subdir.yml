@@ -25,16 +25,19 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_PAT }}
 
-      - name: Check file changed
+      - name: Build changed images
         run: | 
           dirs=$(git diff --name-only HEAD^ HEAD | grep ^images/ | cut -d '/' -f 1-3 | sort | uniq)
           echo Directories with changes are: $dirs
           echo "Running Docker Containers Creation"
           for dir in $dirs; do
-            image=$(echo $dir | cut -d '/' -f 2)
-            tag=$(echo $dir | cut -d '/' -f 3)
-            cd $GITHUB_WORKSPACE/${dir}
-            echo Running dockerbuild here: $(pwd)
-            docker build -t ${DOCKERHUB_REPO}/${image}:${tag}-${{ github.sha }} .  -f Dockerfile
-            docker push ${DOCKERHUB_REPO}/${image}:${tag}-${{ github.sha }}
+            if [[ -f Dockerfile ]]; then
+              image=$(echo $dir | cut -d '/' -f 2)
+              tag=$(echo $dir | cut -d '/' -f 3)
+              cd $GITHUB_WORKSPACE/${dir}
+              echo Running dockerbuild here: $(pwd)
+              docker build -t ${DOCKERHUB_REPO}/${image}:${tag}-${{ github.sha }} .  -f Dockerfile
+              docker push ${DOCKERHUB_REPO}/${image}:${tag}-${{ github.sha }}
+            fi
           done
+
