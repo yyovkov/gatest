@@ -38,6 +38,9 @@ jobs:
               echo Running dockerbuild here: $(pwd)
               docker build -t ${{ env.DOCKERHUB_REPO }}/${image}:${tag}-${{ github.sha }} .  -f Dockerfile
               docker push ${{ env.DOCKERHUB_REPO }}/${image}:${tag}-${{ github.sha }}
+            else
+              echo There is no Dockerfile here
+              ls -l
             fi
           done
 
