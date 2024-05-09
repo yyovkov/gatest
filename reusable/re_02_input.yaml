@@ -1,0 +1,17 @@
+name: Reusable Workflow with Input
+
+on:
+  workflow_call:
+    inputs:
+      var-to-pass:
+        required: true
+        type: string
+
+jobs:
+  reusable_workflow_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: display conig path
+        run: |
+          echo CONFIG PATH: ${{ inputs.var-to-pass }}
+
