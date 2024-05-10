@@ -1,0 +1,11 @@
+name: Reusable Workflow Simple
+
+on:
+  workflow_call:
+
+jobs:
+  reuisable_wf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: WF One Step One
+        run: echo "Hello from WF One Step One"

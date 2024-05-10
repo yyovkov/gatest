@@ -1,10 +1,8 @@
-# GitHub Actions Tests
+# GitHub Action Samples
 
-## Build only changed directories
+In this directory are collected some GitHub samples, that are demonstrating some very useful features.
 
-### Run Action on Changed Directories only
+## Structure
 
-* GitHub Action [./github/workflows/ci-build-subdir.yml](https://github.com/yyovkov/gatest/blob/master/.github/workflows/ci-build-subdir.yml)
-
-Run this action only if file in one of the subdirectories of _images/**_ has been changed. For example if the file in the directory __images/python/3.95_ have been changed, it will trigger docker build process only for that directory, but will not update the the other versions of _python_ or _datadog-agent_.
+All the directories should be threated as separate repositories, and the `_github/_ directory in any of the should be read as `.github` in the separate projects.
 
